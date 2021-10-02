@@ -35,8 +35,6 @@ function App() {
     }
 
     const handleClickedSound = (clickedSounds: any) => {
-        console.log(clickedSounds);
-
         for (const sound of allSounds) {
             let trackInArray = allSounds.find((sounds) => sounds.trackName.src === clickedSounds.src);
             if (!trackInArray!.isPlay) {
@@ -64,7 +62,7 @@ function App() {
                                 onClick={() => handleClickedSound(sound.trackName)}
                                 className={`${sound.isPlay ? 'inner-square-on' : 'inner-square'}`}
                             >
-                                {index}
+                                {index + 1}
                             </div>
                         </div>
                     ))}
