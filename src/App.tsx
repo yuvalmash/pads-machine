@@ -31,21 +31,16 @@ function App() {
     const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
 
     function handleClick() {
-        debugger;
         forceUpdate();
     }
 
-    const hendleClickedSound = (clickedSounds: any) => {
+    const handleClickedSound = (clickedSounds: any) => {
         console.log(clickedSounds);
 
         for (const sound of allSounds) {
-            if (clickedSounds.src === sound.trackName.src) debugger;
-            debugger;
             let trackInArray = allSounds.find((sounds) => sounds.trackName.src === clickedSounds.src);
-            debugger;
             if (!trackInArray!.isPlay) {
                 trackInArray!.isPlay = true;
-                debugger;
                 clickedSounds.loop = true;
                 clickedSounds.play();
             } else {
@@ -66,7 +61,7 @@ function App() {
                         <div className="inner-grid" key={sound.trackName.src}>
                             <div
                                 key={sound.trackName.src + index}
-                                onClick={() => hendleClickedSound(sound.trackName)}
+                                onClick={() => handleClickedSound(sound.trackName)}
                                 className={`${sound.isPlay ? 'inner-square-on' : 'inner-square'}`}
                             >
                                 {index}
